@@ -4,3 +4,8 @@
   top: 0;
   left: 0;
 }
+
+.mobile_menu_list li a {
+  padding: 0.5rem 5rem;
+  border: 1px solid black;
+}

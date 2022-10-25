@@ -4,6 +4,10 @@ import "./Header.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handelMobileMenu = (event) => {
+    event.target = setIsMenuOpen(false);
+    console.log(event.target);
+  };
   return (
     <div className="bg-gray-900 mb-5">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -149,7 +153,10 @@ const Header = () => {
                     </div>
                   </div>
                   <nav>
-                    <ul className="space-y-4">
+                    <ul
+                      onClick={handelMobileMenu}
+                      className="space-y-4 mobile_menu_list"
+                    >
                       <li>
                         <Link
                           to="/home"
