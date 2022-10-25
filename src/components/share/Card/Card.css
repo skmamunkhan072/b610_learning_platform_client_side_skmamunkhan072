@@ -1,0 +1,43 @@
+.course-price-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #8e43e7;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 15px 10px;
+  z-index: 1;
+}
+.course-price-badge::after {
+  bottom: 0;
+  border-bottom: 19px solid #8e43e7;
+  content: "";
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
+
+.course-price-badge::before {
+  top: 0;
+  border-top: 19px solid #8e43e7;
+  content: "";
+  position: absolute;
+  left: 0;
+  transform: translateX(-50%);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
+.card_img_wraper {
+  overflow: hidden;
+}
+
+.card_wraper:hover .card_img_thamnel {
+  transform: scale(1.2);
+  transition: all 1s;
+}
