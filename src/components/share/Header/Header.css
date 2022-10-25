@@ -1,0 +1,6 @@
+.mobile_menu_wraper {
+  z-index: 999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

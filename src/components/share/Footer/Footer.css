@@ -4,3 +4,17 @@
 .footer_top_svg_icon {
   color: #661fff;
 }
+
+@media screen and (max-width: 640px) {
+  .footer_header_wraper {
+    margin: auto;
+    text-align: center;
+  }
+  .footer_link_wraper {
+    text-align: center;
+  }
+  .footer_social_media_icon_wraper {
+    margin: auto;
+    margin-top: 1rem;
+  }
+}
