@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TbArrowRightTail } from "react-icons/tb";
 import HomeImg from "../../../img/shea_img/Homeimg.png";
+import Courses from "../Courses/Courses";
 
 const Home = () => {
   return (
@@ -42,15 +43,18 @@ const Home = () => {
                   <TbArrowRightTail className="inline-block text-2xl mt-[6px] ml-1" />
                 </Link>
               </div>
-              <div className="w-full max-w-xl xl:w-5/12">
-                {/* <div className="rounded shadow-2xl "> */}
-                <img src={HomeImg} alt="" className="rounded shadow-2xl" />
-                {/* </div> */}
+              <div className=" max-w-xl xl:w-12/12 xl:h-[600px] ">
+                <img
+                  src={HomeImg}
+                  alt=""
+                  className="rounded shadow-2xl d-block w-[100%] h-[100%]"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
+      <Courses />
     </div>
   );
 };

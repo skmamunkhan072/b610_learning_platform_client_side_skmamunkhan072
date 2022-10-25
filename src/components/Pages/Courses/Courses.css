@@ -1,0 +1,12 @@
+.section_title::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 50%;
+  background: #661fff;
+  width: 200px;
+  transform: translate(-50%, -50%);
+  margin: 17px auto;
+  border-radius: 10px;
+  height: 5px;
+}
