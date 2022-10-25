@@ -1,0 +1,5 @@
+@media screen and (max-width: 640px) {
+  .courses_card_details_text-wraper {
+    margin-left: 10px;
+  }
+}

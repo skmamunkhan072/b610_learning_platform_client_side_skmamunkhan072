@@ -11,7 +11,7 @@ const CoursesDetailsCard = () => {
           className="object-cover object-center w-full h-full rounded dark:bg-gray-500"
         />
       </div>
-      <div className="flex flex-col space-y-4 sm:ml-5  lg:ml-5 md:mt-5  ">
+      <div className="courses_card_details_text-wraper flex flex-col space-y-4 sm:ml-5  lg:ml-5 md:mt-5  ">
         <div>
           <h2 className="text-2xl font-semibold">Leroy Jenkins</h2>
           <span className="text-sm dark:text-gray-400">General manager</span>

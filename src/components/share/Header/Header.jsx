@@ -10,7 +10,7 @@ const Header = () => {
     console.log(event.target);
   };
   return (
-    <div className="bg-gray-900 sticky top-0 left-0">
+    <div className="bg-gray-900 sticky top-0 left-0 drop-shadow-2xl shadow-lg shadow-slate-500/10 z-[99]">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link to="/" className="inline-flex items-center">
@@ -21,6 +21,14 @@ const Header = () => {
             </div>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
+            <li>
+              <Link
+                to="/trainers"
+                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+              >
+                trainers
+              </Link>
+            </li>
             <li>
               <Link
                 to="/home"
