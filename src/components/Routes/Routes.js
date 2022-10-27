@@ -38,7 +38,7 @@ export const router = createBrowserRouter([
         path: "coursesdetails/:id",
         loader: ({ params }) =>
           fetch(
-            `https://best-skills-learning-study-course-server.vercel.app/${params.id}`
+            `https://best-skills-learning-study-course-server.vercel.app/coursesdetails/${params.id}`
           ),
         element: <CoursesDetails />,
       },

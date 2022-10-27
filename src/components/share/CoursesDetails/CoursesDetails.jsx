@@ -8,9 +8,7 @@ import { GiShoppingCart } from "react-icons/gi";
 
 const CoursesDetails = () => {
   const [categoryDetails, setCategoryDetails] = useState({});
-  const lodCoursesDetails = useLoaderData();
-
-  console.log(categoryDetails.categoryImage);
+  const lodCoursesDetails = useLoaderData([]);
 
   return (
     <div className="md:flex">
