@@ -12,6 +12,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, singOutAccount } = useContext(AuthContext);
   const [thems, setThems] = useState(false);
+
   const handelMobileMenu = (event) => {
     event.target = setIsMenuOpen(true);
     console.log(event.target);

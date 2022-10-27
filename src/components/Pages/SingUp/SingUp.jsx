@@ -53,10 +53,16 @@ const SingUp = () => {
     handelGoogleUserCreatePopup()
       .then((result) => {
         const user = result.user;
+        swal("Good job!", "You clicked the value!", "success");
         // toast.success("please  verify email address");
       })
       .catch((error) => {
         console.log("error", error);
+        Swal.fire({
+          icon: "error",
+          title: "Enter your curent value",
+          text: "pless try agin !",
+        });
       });
   };
 
@@ -100,7 +106,7 @@ const SingUp = () => {
                 </Link>
               </div>
               <div className="sing-up-container login-container w-full max-w-xl  m-auto">
-                <div className="login-title">Login</div>
+                <div className="login-title">Sing Up</div>
                 <form onSubmit={handleSubmit} className="login-form">
                   <input
                     type="name"
