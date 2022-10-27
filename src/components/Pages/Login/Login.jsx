@@ -1,10 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { TbArrowRightTail } from "react-icons/tb";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvaider";
+import { useState } from "react";
 
 const Login = () => {
-  const handleSubmit = () => {};
+  const { handelLoginGmailPassword, setUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const forms = location?.state?.from?.pathname || "/";
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    handelLoginGmailPassword(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        // if (result.user.emailVerified) {
+        navigate(forms, { replace: true });
+        // } else {
+        // toast.error("Your email is no't verified. please your email verify");
+        // }
+      })
+      .catch((error) => {
+        setError(error);
+        console.log("error", error);
+      });
+    form.reset();
+  };
   return (
     <div className="relative">
       <img
@@ -46,9 +74,11 @@ const Login = () => {
             <div className="login-container w-full max-w-xl  m-auto">
               <div className="login-title">Login</div>
               <form onSubmit={handleSubmit} className="login-form">
-                <input type="email" placeholder="Your Email" />
-                <input type="password" placeholder="password" />
-                <p className="text-center error-message">error ----------</p>
+                <input type="email" name="email" placeholder="Your Email" />
+                <input type="password" name="password" placeholder="password" />
+                <p className="text-center error-message">
+                  {error ? "❌ Pless curent value" : ""}
+                </p>
                 <p className="mt-3 ml-[10px] cursor-pointer">
                   Forgot Password --------
                 </p>

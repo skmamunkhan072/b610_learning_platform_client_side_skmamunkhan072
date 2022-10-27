@@ -16,7 +16,13 @@ const Header = () => {
 
   // handel user account log out
   const handelUserLogOut = () => {
-    singOutAccount();
+    singOutAccount()
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
   };
   return (
     <div className="bg-gray-900 sticky top-0 left-0 drop-shadow-2xl shadow-lg shadow-slate-500/10 z-[99]">
@@ -71,7 +77,7 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              {user ? (
+              {user?.uid ? (
                 <>
                   <span
                     onClick={handelUserLogOut}
@@ -216,7 +222,7 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        {user ? (
+                        {user?.uid ? (
                           <>
                             <span
                               onClick={handelUserLogOut}

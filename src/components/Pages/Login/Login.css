@@ -82,9 +82,9 @@
   color: red;
   margin: 10px;
 }
-.error-message::before {
+/* .error-message::before {
   content: "❌ ";
-}
+} */
 
 .sosal_icon_wraper {
   border-radius: 50%;

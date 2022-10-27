@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import Pricing from "../Pages/Pricing/Pricing";
 import SingUp from "../Pages/SingUp/SingUp";
 import CoursesDetails from "../share/CoursesDetails/CoursesDetails";
+import PrivetRoute from "../share/PrivetRoute/PrivetRoute";
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +41,11 @@ export const router = createBrowserRouter([
           fetch(
             `https://best-skills-learning-study-course-server.vercel.app/coursesdetails/${params.id}`
           ),
-        element: <CoursesDetails />,
+        element: (
+          <PrivetRoute>
+            <CoursesDetails />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/pricing/:id",
@@ -48,7 +53,11 @@ export const router = createBrowserRouter([
           fetch(
             `https://best-skills-learning-study-course-server.vercel.app/${params.id}`
           ),
-        element: <Pricing />,
+        element: (
+          <PrivetRoute>
+            <Pricing />
+          </PrivetRoute>
+        ),
       },
       {
         path: "/singUp",

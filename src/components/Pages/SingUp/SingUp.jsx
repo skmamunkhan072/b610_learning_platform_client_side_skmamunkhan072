@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TbArrowRightTail } from "react-icons/tb";
 import { BsGoogle } from "react-icons/bs";
 import { AiFillGithub } from "react-icons/ai";
@@ -11,12 +11,14 @@ const SingUp = () => {
   const {
     createUser,
     handelUserCreate,
-    userProfileAndNameUpdate,
+    userNameProfileUpdate,
     handelUserVeryfy,
     handelGoogleUserCreatePopup,
     setUser,
     user,
+    userProfileAndNameUpdate,
   } = useContext(AuthContext);
+  const neveget = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,12 +30,11 @@ const SingUp = () => {
     handelUserCreate(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
-        // userEmailVerify();
-        // nevigate("/");
-        // form.reset();
-        // userNameProfileUpdate(name, profileUrl);
+        handelUserVeryfy();
+        form.reset();
+        userNameProfileUpdate(name, profileUrl);
         // toast.success("please  verify email address");
+        neveget("/");
       })
       .catch((error) => {
         console.log("error", error);
@@ -45,11 +46,6 @@ const SingUp = () => {
     handelGoogleUserCreatePopup()
       .then((result) => {
         const user = result.user;
-        // console.log(user);
-        // userEmailVerify();
-        // nevigate("/");
-        // form.reset();
-        // userNameProfileUpdate(name, profileUrl);
         // toast.success("please  verify email address");
       })
       .catch((error) => {
