@@ -8,12 +8,16 @@ import { AuthContext } from "../../../Context/AuthProvaider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user, singOutAccount } = useContext(AuthContext);
   const handelMobileMenu = (event) => {
     event.target = setIsMenuOpen(false);
     console.log(event.target);
   };
-  console.log(user);
+
+  // handel user account log out
+  const handelUserLogOut = () => {
+    singOutAccount();
+  };
   return (
     <div className="bg-gray-900 sticky top-0 left-0 drop-shadow-2xl shadow-lg shadow-slate-500/10 z-[99]">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -67,12 +71,34 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/singUp"
-                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                Sign up
-              </Link>
+              {user ? (
+                <>
+                  <span
+                    onClick={handelUserLogOut}
+                    className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  >
+                    LogOut
+                  </span>
+                  <span className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                    naem
+                  </span>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/singUp"
+                    className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  >
+                    Sign up
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  >
+                    Login
+                  </Link>
+                </>
+              )}
             </li>
             <li>
               <Link
@@ -190,12 +216,38 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link
-                          to="/singUp"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Sign up
-                        </Link>
+                        {user ? (
+                          <>
+                            <span
+                              onClick={handelUserLogOut}
+                              className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            >
+                              LogOut
+                            </span>
+                            <span className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                              naem
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <p className="mb-4">
+                              <Link
+                                to="/singUp"
+                                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              >
+                                Sign up
+                              </Link>
+                            </p>
+                            <p>
+                              <Link
+                                to="/login"
+                                className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              >
+                                Login
+                              </Link>
+                            </p>
+                          </>
+                        )}
                       </li>
                     </ul>
                   </nav>

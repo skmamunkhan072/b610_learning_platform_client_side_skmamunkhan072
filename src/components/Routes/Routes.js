@@ -37,13 +37,17 @@ export const router = createBrowserRouter([
       {
         path: "coursesdetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coursesdetails/${params.id}`),
+          fetch(
+            `https://best-skills-learning-study-course-server.vercel.app/${params.id}`
+          ),
         element: <CoursesDetails />,
       },
       {
         path: "/pricing/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/pricing/${params.id}`),
+          fetch(
+            `https://best-skills-learning-study-course-server.vercel.app/${params.id}`
+          ),
         element: <Pricing />,
       },
       {

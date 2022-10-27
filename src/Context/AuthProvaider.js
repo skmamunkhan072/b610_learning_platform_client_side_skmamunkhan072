@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import { app } from "../components/share/firebase/firebase.config";
 import { useState } from "react";
@@ -42,10 +43,10 @@ const AuthProvaider = ({ children }) => {
   }, []);
 
   // sing out
-  // const singOutAccount = () => {
-  //   setLoding(false);
-  //   signOut(auth);
-  // };
+  const singOutAccount = () => {
+    // setLoding(false);
+    signOut(auth);
+  };
 
   // handel shear context obj
   const authContextProvider = {
@@ -53,6 +54,7 @@ const AuthProvaider = ({ children }) => {
     handelGoogleUserCreatePopup,
     setUser,
     user,
+    singOutAccount,
   };
 
   return (
