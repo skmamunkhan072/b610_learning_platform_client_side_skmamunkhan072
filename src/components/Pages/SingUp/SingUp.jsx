@@ -1,10 +1,64 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TbArrowRightTail } from "react-icons/tb";
+import { BsGoogle } from "react-icons/bs";
+import { AiFillGithub } from "react-icons/ai";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvaider";
+import "./SingUp.css";
 
 const SingUp = () => {
+  const {
+    createUser,
+    handelUserCreate,
+    userProfileAndNameUpdate,
+    handelUserVeryfy,
+    handelGoogleUserCreatePopup,
+    setUser,
+    user,
+  } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const profileUrl = form.photoURL.value;
+    const name = form.name.value;
+    handelUserCreate(email, password)
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        // userEmailVerify();
+        // nevigate("/");
+        // form.reset();
+        // userNameProfileUpdate(name, profileUrl);
+        // toast.success("please  verify email address");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+    form.reset();
+  };
+  //   handel Google user create
+  const handelGoogleUserCreate = () => {
+    handelGoogleUserCreatePopup()
+      .then((result) => {
+        const user = result.user;
+        // console.log(user);
+        // userEmailVerify();
+        // nevigate("/");
+        // form.reset();
+        // userNameProfileUpdate(name, profileUrl);
+        // toast.success("please  verify email address");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
+
   return (
-    <div className="">
+    <div>
       <div className="relative">
         <img
           src="https://images.pexels.com/photos/3228766/pexels-photo-3228766.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
@@ -42,73 +96,51 @@ const SingUp = () => {
                   <TbArrowRightTail className="inline-block text-2xl mt-[6px] ml-1" />
                 </Link>
               </div>
-              <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-                <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
-                  <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                    Sign up for updates
-                  </h3>
-                  <form>
-                    <div className="mb-1 sm:mb-2">
-                      <label
-                        htmlFor="firstName"
-                        className="inline-block mb-1 font-medium"
-                      >
-                        First name
-                      </label>
-                      <input
-                        placeholder="John"
-                        required
-                        type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                        id="firstName"
-                        name="firstName"
-                      />
-                    </div>
-                    <div className="mb-1 sm:mb-2">
-                      <label
-                        htmlFor="lastName"
-                        className="inline-block mb-1 font-medium"
-                      >
-                        Last name
-                      </label>
-                      <input
-                        placeholder="Doe"
-                        required
-                        type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                        id="lastName"
-                        name="lastName"
-                      />
-                    </div>
-                    <div className="mb-1 sm:mb-2">
-                      <label
-                        htmlFor="email"
-                        className="inline-block mb-1 font-medium"
-                      >
-                        E-mail
-                      </label>
-                      <input
-                        placeholder="john.doe@example.org"
-                        required
-                        type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                        id="email"
-                        name="email"
-                      />
-                    </div>
-                    <div className="mt-4 mb-2 sm:mb-4">
-                      <button
-                        type="submit"
-                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                      >
-                        Subscribe
-                      </button>
-                    </div>
-                    <p className="text-xs text-gray-600 sm:text-sm">
-                      We respect your privacy. Unsubscribe at any time.
-                    </p>
-                  </form>
+              <div className="sing-up-container login-container w-full max-w-xl  m-auto">
+                <div className="login-title">Login</div>
+                <form onSubmit={handleSubmit} className="login-form">
+                  <input
+                    type="name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                  />
+                  <input
+                    type="photoURL"
+                    name="photoURL"
+                    placeholder="Your photoURL"
+                  />
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    required
+                  />
+                  <p className="text-center error-message">error---</p>
+                  <button className="btn">Sing Up</button>
+                  <p className=" text-center">
+                    Don't have an account?
+                    <Link to="/login">Log in...</Link>
+                  </p>
+                </form>
+                <div className="flex justify-center items-center">
+                  <div
+                    onClick={handelGoogleUserCreate}
+                    className="sosal_icon_wraper"
+                  >
+                    <BsGoogle className="text-4xl cursor-pointer " />
+                  </div>
+                  <div className="sosal_icon_wraper">
+                    <AiFillGithub className="text-4xl cursor-pointer " />
+                  </div>
                 </div>
+                <p>--------------- Sing Up ---------------</p>
               </div>
             </div>
           </div>

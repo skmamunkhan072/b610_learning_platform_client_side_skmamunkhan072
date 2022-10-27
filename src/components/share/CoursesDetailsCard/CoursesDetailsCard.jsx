@@ -1,6 +1,7 @@
 import React from "react";
 import "./CoursesDetailsCard.css";
 import { TbArrowNarrowRight } from "react-icons/tb";
+import { useEffect } from "react";
 
 const CoursesDetailsCard = ({ category, setCategoryDetails }) => {
   const {
@@ -9,6 +10,7 @@ const CoursesDetailsCard = ({ category, setCategoryDetails }) => {
     categoryId,
     categoryImage,
     categoryName,
+    coursesName,
     id,
   } = category;
   const handelCategoryDetails = () => {
@@ -17,9 +19,13 @@ const CoursesDetailsCard = ({ category, setCategoryDetails }) => {
       categoryDitails,
       categoryName,
       categoryId,
+      coursesName,
     };
     setCategoryDetails(categoryDetail);
   };
+  useEffect(() => {
+    handelCategoryDetails();
+  }, []);
   console.log(category);
   return (
     <div className="shadow-2xl rounded-md	 shadow-slate-500/50  mb-4 pr-4 sm:flex-row flex  md:flex-col lg:flex-row text-start dark:bg-gray-900 dark:text-gray-100">

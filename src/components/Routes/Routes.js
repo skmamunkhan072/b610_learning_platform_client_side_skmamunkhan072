@@ -9,7 +9,6 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Pricing from "../Pages/Pricing/Pricing";
 import SingUp from "../Pages/SingUp/SingUp";
-import Trainers from "../Pages/Trainers/Trainers";
 import CoursesDetails from "../share/CoursesDetails/CoursesDetails";
 
 export const router = createBrowserRouter([
@@ -42,15 +41,13 @@ export const router = createBrowserRouter([
         element: <CoursesDetails />,
       },
       {
-        path: "/trainers",
-        element: <Trainers />,
-      },
-      {
         path: "/pricing/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/pricing/${params.id}`),
         element: <Pricing />,
       },
       {
-        path: "/SingUp",
+        path: "/singUp",
         element: <SingUp />,
       },
       {

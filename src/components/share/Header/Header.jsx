@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineSketch } from "react-icons/ai";
 import "./Header.css";
+import { HiOutlineUserCircle } from "react-icons/hi";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvaider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useContext(AuthContext);
   const handelMobileMenu = (event) => {
     event.target = setIsMenuOpen(false);
     console.log(event.target);
   };
+  console.log(user);
   return (
     <div className="bg-gray-900 sticky top-0 left-0 drop-shadow-2xl shadow-lg shadow-slate-500/10 z-[99]">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -21,14 +26,6 @@ const Header = () => {
             </div>
           </Link>
           <ul className="flex items-center hidden space-x-8 lg:flex">
-            <li>
-              <Link
-                to="/trainers"
-                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                trainers
-              </Link>
-            </li>
             <li>
               <Link
                 to="/home"
@@ -55,7 +52,7 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/pricing"
+                to="/pricing/:1"
                 className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Pricing
@@ -71,10 +68,18 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/SingUp"
+                to="/singUp"
                 className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
                 Sign up
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/"
+                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+              >
+                <HiOutlineUserCircle />
               </Link>
             </li>
           </ul>
@@ -170,7 +175,7 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/pricing"
+                          to="/pricing/:1"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Pricing
@@ -186,7 +191,7 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/SingUp"
+                          to="/singUp"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
                           Sign up

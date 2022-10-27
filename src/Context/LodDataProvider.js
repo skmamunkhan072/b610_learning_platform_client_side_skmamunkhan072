@@ -8,7 +8,7 @@ const LodDataProvider = ({ children }) => {
   const [coursesCategory, setCoursesCategory] = useState([]);
 
   const handelCoursesCategory = () => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://best-skills-learning-study-course-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => setCoursesCategory(data));
   };
