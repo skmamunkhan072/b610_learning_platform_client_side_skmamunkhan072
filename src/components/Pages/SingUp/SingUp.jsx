@@ -9,16 +9,12 @@ import "./SingUp.css";
 
 const SingUp = () => {
   const {
-    createUser,
     handelUserCreate,
     userNameProfileUpdate,
     handelUserVeryfy,
     handelGoogleUserCreatePopup,
-    setUser,
-    user,
-    userProfileAndNameUpdate,
   } = useContext(AuthContext);
-  const neveget = useNavigate();
+  const nevigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,10 +27,10 @@ const SingUp = () => {
       .then((result) => {
         const user = result.user;
         handelUserVeryfy();
-        form.reset();
+        nevigate("/");
         userNameProfileUpdate(name, profileUrl);
+        form.reset();
         // toast.success("please  verify email address");
-        neveget("/");
       })
       .catch((error) => {
         console.log("error", error);

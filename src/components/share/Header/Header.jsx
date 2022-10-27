@@ -86,7 +86,7 @@ const Header = () => {
                     LogOut
                   </span>
                   <span className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
-                    naem
+                    {user?.displayName ? user?.displayName : "No Name"}
                   </span>
                 </>
               ) : (
@@ -106,13 +106,32 @@ const Header = () => {
                 </>
               )}
             </li>
+
             <li>
-              <Link
-                to="/"
-                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
-              >
-                <HiOutlineUserCircle />
-              </Link>
+              <div className="profile_wraper font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                <span className="tooltip"> hello</span>
+                {user?.photoURL ? (
+                  <img
+                    className="Profile_img"
+                    style={{
+                      height: "40px",
+                      width: "40px",
+                      margin: "0px 5px",
+                      borderRadius: "50%",
+                    }}
+                    src={user?.photoURL}
+                  ></img>
+                ) : (
+                  <HiOutlineUserCircle
+                    style={{
+                      height: "40px",
+                      width: "40px",
+                      margin: "0px 5px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                )}
+              </div>
             </li>
           </ul>
           <div className="lg:hidden">
@@ -230,8 +249,10 @@ const Header = () => {
                             >
                               LogOut
                             </span>
-                            <span className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
-                              naem
+                            <span className="ml-4font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                              {user?.displayName
+                                ? user?.displayName
+                                : "No Name"}
                             </span>
                           </>
                         ) : (
@@ -254,6 +275,19 @@ const Header = () => {
                             </p>
                           </>
                         )}
+                      </li>
+                      <li>
+                        <div className="block w-[50px] h-[50px]  font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                          {user?.photoURL ? (
+                            <img
+                              src={user?.photoURL}
+                              alt=""
+                              className="profile_img"
+                            />
+                          ) : (
+                            <HiOutlineUserCircle className="profile_img" />
+                          )}
+                        </div>
                       </li>
                     </ul>
                   </nav>

@@ -9,3 +9,29 @@
   padding: 0.5rem 5rem;
   border: 1px solid black;
 }
+
+.profile_img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  border-radius: 50%;
+  font-size: 50px;
+}
+
+.tooltip {
+  position: relative;
+}
+.tooltip {
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: gray;
+  padding: 2px 7px;
+  border-radius: 10px 5px 5px 0;
+  display: none;
+}
+.Profile_img:hover .tooltip {
+  z-index: 111;
+  display: block !important;
+}

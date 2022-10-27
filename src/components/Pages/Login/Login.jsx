@@ -21,11 +21,11 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        // if (result.user.emailVerified) {
-        navigate(forms, { replace: true });
-        // } else {
-        // toast.error("Your email is no't verified. please your email verify");
-        // }
+        if (result.user.emailVerified) {
+          navigate(forms, { replace: true });
+        } else {
+          // toast.error("Your email is no't verified. please your email verify");
+        }
       })
       .catch((error) => {
         setError(error);
