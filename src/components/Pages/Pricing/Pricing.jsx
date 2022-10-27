@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const Pricing = () => {
   const curses = useLoaderData();
   const { prices } = curses;
+  console.log(curses);
   return (
     <div>
       <h1>This is Pricing compo</h1>
@@ -15,7 +16,7 @@ const Pricing = () => {
           <div className="flex items-baseline text-gray-900 dark:text-white">
             <span className="text-3xl font-semibold">$</span>
             <span className="text-5xl font-extrabold tracking-tight">
-              {prices ? prices : "No prices"}
+              {prices ? prices : "400"}
             </span>
             <span className="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
               /full curses

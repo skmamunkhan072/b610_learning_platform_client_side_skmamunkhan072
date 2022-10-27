@@ -60,7 +60,7 @@ const Card = ({ category }) => {
                   <TbArrowNarrowRight className="mt-1 ml-3" />
                 </Link>
                 <Link
-                  to="/pricing"
+                  to={`/pricing/${coursesId}`}
                   className=" mt-5 flex justify-center align-center text-white bg-[#661fff] hover:bg-[#e11fff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#661fff] dark:hover:bg-[#e11fff] dark:focus:ring-blue-800"
                 >
                   By Now
