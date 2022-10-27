@@ -5,10 +5,13 @@ import "./Header.css";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthProvaider";
+import { MdOutlineLightMode } from "react-icons/md";
+import { MdOutlineNightlight } from "react-icons/md";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, singOutAccount } = useContext(AuthContext);
+  const [thems, setThems] = useState(false);
   const handelMobileMenu = (event) => {
     event.target = setIsMenuOpen(false);
     console.log(event.target);
@@ -24,6 +27,13 @@ const Header = () => {
         // An error happened.
       });
   };
+
+  // handelTheesChange
+  const handelTheesChange = () => {
+    thems ? setThems(false) : setThems(false);
+  };
+  console.log(thems);
+
   return (
     <div className="bg-gray-900 sticky top-0 left-0 drop-shadow-2xl shadow-lg shadow-slate-500/10 z-[99]">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -132,6 +142,13 @@ const Header = () => {
                   />
                 )}
               </div>
+            </li>
+            <li onClick={handelTheesChange}>
+              {thems ? (
+                <MdOutlineLightMode className="text-white text-2xl cursor-pointer" />
+              ) : (
+                <MdOutlineNightlight className="text-black text-2xl cursor-pointer" />
+              )}
             </li>
           </ul>
           <div className="lg:hidden">
