@@ -3,7 +3,7 @@
   content: "";
   top: 100%;
   left: 50%;
-  background: #661fff;
+  background: var(--blue);
   width: 200px;
   transform: translate(-50%, -50%);
   margin: 17px auto;

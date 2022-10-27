@@ -21,7 +21,6 @@
 
 .login-form {
   text-align: left;
-  /* margin-top: 30px; */
 }
 
 .login-container label,
@@ -82,9 +81,9 @@
   color: red;
   margin: 10px;
 }
-/* .error-message::before {
+.error-message::before {
   content: "❌ ";
-} */
+}
 
 .sosal_icon_wraper {
   border-radius: 50%;

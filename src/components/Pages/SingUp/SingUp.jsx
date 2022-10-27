@@ -6,6 +6,9 @@ import { AiFillGithub } from "react-icons/ai";
 import { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthProvaider";
 import "./SingUp.css";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import swal from "sweetalert";
 
 const SingUp = () => {
   const {
@@ -15,6 +18,7 @@ const SingUp = () => {
     handelGoogleUserCreatePopup,
   } = useContext(AuthContext);
   const nevigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -29,11 +33,18 @@ const SingUp = () => {
         handelUserVeryfy();
         nevigate("/");
         userNameProfileUpdate(name, profileUrl);
+        Swal.fire({
+          icon: "error",
+          title: "Enter your curent value",
+          text: "pless try agin !",
+        });
         form.reset();
-        // toast.success("please  verify email address");
       })
       .catch((error) => {
+        swal("Good job!", "You clicked the value!", "success");
+
         console.log("error", error);
+        setError(error);
       });
     form.reset();
   };
@@ -114,7 +125,7 @@ const SingUp = () => {
                     placeholder="password"
                     required
                   />
-                  <p className="text-center error-message">error---</p>
+                  <p className="text-center error-message">{error}</p>
                   <button className="btn">Sing Up</button>
                   <p className=" text-center">
                     Don't have an account?

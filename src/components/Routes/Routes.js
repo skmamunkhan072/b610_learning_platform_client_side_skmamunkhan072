@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayouts from "../Layouts/MainLayouts";
 import About from "../Pages/About/About";
 import Blog from "../Pages/Blog/Blog";
-import Contact from "../Pages/Contact/Contact";
 import Courses from "../Pages/Courses/Courses";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
@@ -28,7 +27,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-
         element: <About />,
       },
       {
@@ -60,20 +58,17 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
         path: "/singUp",
         element: <SingUp />,
       },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
+
       {
         path: "/Login",
         element: <Login />,
-      },
-      {
-        path: "/blog/:id",
-        element: <Blog />,
       },
     ],
   },

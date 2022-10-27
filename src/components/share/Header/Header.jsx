@@ -13,7 +13,7 @@ const Header = () => {
   const { user, singOutAccount } = useContext(AuthContext);
   const [thems, setThems] = useState(false);
   const handelMobileMenu = (event) => {
-    event.target = setIsMenuOpen(false);
+    event.target = setIsMenuOpen(true);
     console.log(event.target);
   };
 
@@ -30,16 +30,21 @@ const Header = () => {
 
   // handelTheesChange
   const handelTheesChange = () => {
-    thems ? setThems(false) : setThems(false);
+    if (thems) {
+      setThems(false);
+      return;
+    } else {
+      setThems(true);
+      return;
+    }
   };
-  console.log(thems);
 
   return (
     <div className="bg-gray-900 sticky top-0 left-0 drop-shadow-2xl shadow-lg shadow-slate-500/10 z-[99]">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           <Link to="/" className="inline-flex items-center">
-            <AiOutlineSketch className="text-5xl text-teal-accent-400" />
+            <AiOutlineSketch className="text-5xl text-teal-accent-400 logo_icon" />
             <div className="ml-2 text-start text-xl font-bold tracking-wide text-gray-100 uppercase">
               <p>Study Course</p>
               <small>Journey to success</small>
@@ -80,10 +85,10 @@ const Header = () => {
             </li>
             <li>
               <Link
-                to="/contact"
+                to="/blog"
                 className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
               >
-                Contact
+                Blog
               </Link>
             </li>
             <li>
@@ -145,9 +150,9 @@ const Header = () => {
             </li>
             <li onClick={handelTheesChange}>
               {thems ? (
-                <MdOutlineLightMode className="text-white text-2xl cursor-pointer" />
+                <MdOutlineLightMode className="text-black text-2xl cursor-pointer" />
               ) : (
-                <MdOutlineNightlight className="text-black text-2xl cursor-pointer" />
+                <MdOutlineNightlight className="text-white text-2xl cursor-pointer" />
               )}
             </li>
           </ul>
@@ -177,21 +182,8 @@ const Header = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link to="/" className="inline-flex items-center">
-                        <svg
-                          className="w-8 text-deep-purple-accent-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
+                        <AiOutlineSketch className="text-5xl text-teal-accent-400 logo_icon" />
+
                         <div className="ml-2 text-start text-xl font-bold tracking-wide text-gray-600 uppercase">
                           <p>Study Course</p>
                           <small>Journey to success</small>
@@ -251,10 +243,10 @@ const Header = () => {
                       </li>
                       <li>
                         <Link
-                          to="/contact"
+                          to="/blog"
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                          Contact
+                          Blog
                         </Link>
                       </li>
                       <li>
@@ -262,11 +254,11 @@ const Header = () => {
                           <>
                             <span
                               onClick={handelUserLogOut}
-                              className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                              className="font-medium tracking-wide text-black cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
                             >
                               LogOut
                             </span>
-                            <span className="ml-4font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                            <span className="ml-4font-medium tracking-wide text-black cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
                               {user?.displayName
                                 ? user?.displayName
                                 : "No Name"}
@@ -277,7 +269,7 @@ const Header = () => {
                             <p className="mb-4">
                               <Link
                                 to="/singUp"
-                                className="font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                className="font-medium tracking-wide text-black  cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
                               >
                                 Sign up
                               </Link>
@@ -285,7 +277,7 @@ const Header = () => {
                             <p>
                               <Link
                                 to="/login"
-                                className="ml-4 font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                className="ml-4 font-medium tracking-wide text-black cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400"
                               >
                                 Login
                               </Link>
@@ -294,7 +286,7 @@ const Header = () => {
                         )}
                       </li>
                       <li>
-                        <div className="block w-[50px] h-[50px]  font-medium tracking-wide text-gray-100 cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
+                        <div className="block w-[50px] h-[50px]  font-medium tracking-wide text-black cursor-pointer transition-colors duration-200 hover:text-deep-purple-accent-400">
                           {user?.photoURL ? (
                             <img
                               src={user?.photoURL}
@@ -305,6 +297,13 @@ const Header = () => {
                             <HiOutlineUserCircle className="profile_img" />
                           )}
                         </div>
+                      </li>
+                      <li onClick={handelTheesChange}>
+                        {thems ? (
+                          <MdOutlineLightMode className="text-black text-2xl cursor-pointer" />
+                        ) : (
+                          <MdOutlineNightlight className="text-white text-2xl cursor-pointer" />
+                        )}
                       </li>
                     </ul>
                   </nav>

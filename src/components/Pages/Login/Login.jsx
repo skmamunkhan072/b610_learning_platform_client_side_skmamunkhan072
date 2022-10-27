@@ -5,6 +5,9 @@ import { TbArrowRightTail } from "react-icons/tb";
 import { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthProvaider";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { handelLoginGmailPassword, setUser } = useContext(AuthContext);
@@ -23,12 +26,22 @@ const Login = () => {
         setUser(user);
         if (result.user.emailVerified) {
           navigate(forms, { replace: true });
+          swal("Good job!", "You clicked the value!", "success");
         } else {
-          // toast.error("Your email is no't verified. please your email verify");
+          Swal.fire({
+            icon: "error",
+            title: "Enter your curent value",
+            text: "pless try agin !",
+          });
         }
       })
       .catch((error) => {
         setError(error);
+        Swal.fire({
+          icon: "error",
+          title: "Enter your curent value",
+          text: "pless try agin !",
+        });
         console.log("error", error);
       });
     form.reset();

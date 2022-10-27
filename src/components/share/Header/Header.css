@@ -1,3 +1,12 @@
+:root {
+  --white: ##ecf0f3;
+  --lite: gray;
+  --black: #000000;
+  --blue: #661fff;
+  --perpul: #e11fff;
+  --perpul-50: #8e43e7;
+}
+
 .mobile_menu_wraper {
   z-index: 99;
   position: absolute;
@@ -7,7 +16,6 @@
 
 .mobile_menu_list li a {
   padding: 0.5rem 5rem;
-  border: 1px solid black;
 }
 
 .profile_img {
@@ -26,7 +34,7 @@
   position: absolute;
   top: 0;
   left: 100%;
-  background: gray;
+  background: var(--lite);
   padding: 2px 7px;
   border-radius: 10px 5px 5px 0;
   display: none;
@@ -34,4 +42,8 @@
 .Profile_img:hover .tooltip {
   z-index: 111;
   display: block !important;
+}
+
+.logo_icon {
+  color: var(--perpul);
 }

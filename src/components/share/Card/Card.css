@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: #8e43e7;
+  background: var(--perpul-50);
   color: #fff;
   font-size: 13px;
   line-height: 1;
