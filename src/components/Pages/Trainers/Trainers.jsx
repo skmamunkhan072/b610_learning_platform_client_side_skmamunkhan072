@@ -1,9 +1,10 @@
 import React from "react";
+import ProgressBarImg from "../../../img/shea_img/ProgressBarImg.png";
 
 const Trainers = () => {
   return (
-    <div className="w-10/12 mx-auto mt-20 lg:flex ">
-      <div class=" lg:w-6/12 px-4">
+    <div className="w-10/12 mx-auto mt-20 lg:flex justify-center items-center	">
+      <div class=" lg:w-6/12 px-4 ">
         <div class="mb-12">
           <div class="bg-lime-600	 relative h-[10px] w-full rounded-2xl">
             <div class="bg-primary absolute top-0 left-0 h-full w-1/2 rounded-2xl">
@@ -35,7 +36,9 @@ const Trainers = () => {
           </div>
         </div>
       </div>
-      <div className="lg:w-6/12"> helo</div>
+      <div className="lg:w-6/12">
+        <img src={ProgressBarImg} alt="Progress bar igm " />
+      </div>
     </div>
   );
 };

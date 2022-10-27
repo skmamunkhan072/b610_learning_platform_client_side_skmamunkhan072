@@ -41,3 +41,14 @@
   transform: scale(1.2);
   transition: all 1s;
 }
+
+.card_btn_container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.card_btn_wraper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
